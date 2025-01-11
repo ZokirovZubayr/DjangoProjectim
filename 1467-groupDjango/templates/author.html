@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+    <h1> Authors Page</h1>
+    </div>
+    <div class="container">
+       <table class="table table-bordered border-primary">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+          <th scope="col">Bio</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in authors %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td scope="row">{{ i.first_name }}</td>
+          <td scope="row">{{ i.last_name }}</td>
+          <td scope="row">{{ i.email }}</td>
+          <td scope="row">{{ i.bio }}</td>
+          <td scope="row"><a href="{% url 'edit_author' i.pk %}" class="btn btn-primary">Edit</a></td>  <!-- ✅ Corrected URL name -->
+          <td scope="row"><a href="{% url 'delete_author' i.pk %}" class="btn btn-danger">Delete</a></td>  <!-- ✅ Corrected URL name -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+{% endblock content %}
+

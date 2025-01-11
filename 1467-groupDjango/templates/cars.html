@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+    <h1> Cars Page</h1>
+    </div>
+    <div class="container">
+       <table class="table table-bordered border-primary">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Color</th>
+          <th scope="col">Speed</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in cars %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ i.car_name }}</td>
+          <td>{{ i.price }}</td>
+          <td>{{ i.color }}</td>
+          <td>{{ i.speed }}</td>
+          <td><a href="{% url 'edit_car' i.pk %}"><button type="button" class="btn btn-primary">Edit</button></a></td>
+          <td><a href="{% url 'delete_car' i.pk %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+{% endblock content %}
+

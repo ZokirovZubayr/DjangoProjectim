@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for i in data %}
+    <p>Name: {{ i.first_name }}</p>
+    <p>Last_name: {{ i.last_name }}</p>
+    <p>Email: {{ i.email }}</p>
+    <p>Bio: {{ i.bio }}</p> <br>
+{% endfor %}
+
+{% endblock content %}
+

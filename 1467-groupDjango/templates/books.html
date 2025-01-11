@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+    <h1> Books Page</h1>
+    </div>
+    <div class="container">
+       <table class="table table-bordered border-primary">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Count</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in books %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ i.title }}</td>
+          <td>{{ i.description }}</td>
+          <td>{{ i.price }}</td>
+          <td>{{ i.count }}</td>
+          <td><a href="{% url 'edit_book' i.pk %}"><button type="button" class="btn btn-primary">Edit</button></a></td>
+          <td><a href="{% url 'delete_book' i.pk %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+{% endblock content %}
+
+
