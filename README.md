@@ -1,0 +1,2 @@
+# DjangoProjectim
+bu sayt
